@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    tags:
-      - v*
 
 permissions:
   contents: write
@@ -40,6 +38,8 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          body: Release ${{ github.ref_name }}
+          body: Release ${{ github.run_id }}
+          tag_name: ${{ github.run_id }}
+          name: build-${{ github.run_id }}
           files: |
             release.tar.gz
