@@ -33,7 +33,7 @@ jobs:
       - name: Build using CMake
         shell: msys2 {0}
         run: |
-            cmake -B build -DWHISPER_SDL2=ON
+            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS_DEFAULT=ON
             cmake --build build --config Release -j
             tar -czvf release.tar.gz build/bin
             
