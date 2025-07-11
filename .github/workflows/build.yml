@@ -19,7 +19,7 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           update: true
-          msystem: ${{matrix.sys}}
+          msystem: CLANG64
           install: >-
             base-devel
             git
