@@ -23,6 +23,7 @@ jobs:
           install: >-
             base-devel
             git
+            zip
             mingw-w64-clang-x86_64-toolchain
             mingw-w64-clang-x86_64-cmake
             mingw-w64-clang-x86_64-SDL2
@@ -31,9 +32,9 @@ jobs:
       - name: Build using CMake
         shell: msys2 {0}
         run: |
-            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS_DEFAULT=ON
+            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON
             cmake --build build --config Release -j
-            tar -czvf release.tar.gz build/bin
+            zip -j release.zip build/bin/*
             
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -42,4 +43,4 @@ jobs:
           tag_name: ${{ github.run_id }}
           name: build-${{ github.run_id }}
           files: |
-            release.tar.gz
+            release.zip
