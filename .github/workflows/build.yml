@@ -19,23 +19,23 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           update: true
-          msystem: CLANG64
+          msystem: UCRT64
           install: >-
             base-devel
             git
             zip
-            mingw-w64-clang-x86_64-toolchain
-            mingw-w64-clang-x86_64-cmake
-            mingw-w64-clang-x86_64-SDL2
-            mingw-w64-clang-x86_64-openblas
-            mingw-w64-clang-x86_64-gcc
-            mingw-w64-clang-x86_64-vulkan-devel
-            mingw-w64-clang-x86_64-shaderc
+            mingw-w64-ucrt-x86_64-toolchain
+            mingw-w64-ucrt-x86_64-cmake
+            mingw-w64-ucrt-x86_64-SDL2
+            mingw-w64-ucrt-x86_64-openblas
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-vulkan-devel
+            mingw-w64-ucrt-x86_64-shaderc
             
       - name: Build using CMake
         shell: msys2 {0}
         run: |
-            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON -DGGML_VULKAN=ON -DGGML_OPENBLAS=ON
+            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON -DGGML_VULKAN=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS
             cmake --build build --config Release -j
             zip -j release.zip build/bin/*
             
