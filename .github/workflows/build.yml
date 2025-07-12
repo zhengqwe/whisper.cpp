@@ -28,11 +28,14 @@ jobs:
             mingw-w64-clang-x86_64-cmake
             mingw-w64-clang-x86_64-SDL2
             mingw-w64-clang-x86_64-openblas
+            mingw-w64-clang-x86_64-gcc
+            mingw-w64-clang-x86_64-vulkan-devel
+            mingw-w64-clang-x86_64-shaderc
             
       - name: Build using CMake
         shell: msys2 {0}
         run: |
-            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON
+            cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON -DGGML_VULKAN=ON -DGGML_OPENBLAS=ON
             cmake --build build --config Release -j
             zip -j release.zip build/bin/*
             
