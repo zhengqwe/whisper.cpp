@@ -37,8 +37,14 @@ jobs:
         run: |
             cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON -DGGML_VULKAN=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS
             cmake --build build --config Release -j
+            cp ../../../../ucrt64/bin/libopenblas.dll build/bin
+            cp ../../../../ucrt64/bin/libwinpthread* build/bin
+            cp ../../../../ucrt64/bin/libgfortran* build/bin
+            cp ../../../../ucrt64/bin/libgomp* build/bin
+            cp ../../../../ucrt64/bin/libquadmath* build/bin
+            cp ../../../../ucrt64/bin/libstdc++* build/bin
             zip -j release.zip build/bin/*
-            pwd
+            sha256sum release.zip
             
       - name: Release
         uses: softprops/action-gh-release@v2
