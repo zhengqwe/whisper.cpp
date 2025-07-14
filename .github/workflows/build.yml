@@ -38,6 +38,7 @@ jobs:
             cmake -B build -DWHISPER_SDL2=ON -DBUILD_SHARED_LIBS=ON -DGGML_VULKAN=ON -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS
             cmake --build build --config Release -j
             zip -j release.zip build/bin/*
+            pwd
             
       - name: Release
         uses: softprops/action-gh-release@v2
