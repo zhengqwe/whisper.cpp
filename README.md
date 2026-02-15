@@ -45,11 +45,9 @@ The rest of the code is part of the [`ggml`](https://github.com/ggml-org/ggml) m
 Having such a lightweight implementation of the model allows to easily integrate it in different platforms and applications.
 As an example, here is a video of running the model on an iPhone 13 device - fully offline, on-device: [whisper.objc](examples/whisper.objc)
 
-https://user-images.githubusercontent.com/1991296/197385372-962a6dea-bca1-4d50-bf96-1d8c27b98c81.mp4
 
 You can also easily make your own offline voice assistant application: [command](examples/command)
 
-https://user-images.githubusercontent.com/1991296/204038393-2f846eae-c255-4099-a76d-5735c25c49da.mp4
 
 On Apple Silicon, the inference runs fully on the GPU via Metal:
 
@@ -507,7 +505,6 @@ cmake --build build -j --config Release
 ./build/bin/whisper-stream -m ./models/ggml-base.en.bin -t 8 --step 500 --length 5000
 ```
 
-https://user-images.githubusercontent.com/1991296/194935793-76afede7-cfa8-48d8-a80f-28ba83be7d09.mp4
 
 ## Confidence color-coding
 
@@ -625,8 +622,6 @@ source ./samples/jfk.wav.wts
 ffplay ./samples/jfk.wav.mp4
 ```
 
-https://user-images.githubusercontent.com/1991296/199337465-dbee4b5e-9aeb-48a3-b1c6-323ac4db5b2c.mp4
-
 ---
 
 ```bash
@@ -635,8 +630,6 @@ source ./samples/mm0.wav.wts
 ffplay ./samples/mm0.wav.mp4
 ```
 
-https://user-images.githubusercontent.com/1991296/199337504-cc8fd233-0cb7-4920-95f9-4227de3570aa.mp4
-
 ---
 
 ```bash
@@ -644,8 +637,6 @@ https://user-images.githubusercontent.com/1991296/199337504-cc8fd233-0cb7-4920-9
 source ./samples/gb0.wav.wts
 ffplay ./samples/gb0.wav.mp4
 ```
-
-https://user-images.githubusercontent.com/1991296/199337538-b7b0c7a3-2753-4a88-a0cd-f28a317987ba.mp4
 
 ---
 
@@ -657,8 +648,6 @@ Use the [scripts/bench-wts.sh](https://github.com/ggml-org/whisper.cpp/blob/mast
 ./scripts/bench-wts.sh samples/jfk.wav
 ffplay ./samples/jfk.wav.all.mp4
 ```
-
-https://user-images.githubusercontent.com/1991296/223206245-2d36d903-cf8e-4f09-8c3b-eb9f9c39d6fc.mp4
 
 ---
 
